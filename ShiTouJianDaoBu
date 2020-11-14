@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int K;
+    cin>>K;
+    int i=0;
+    while(1)
+    {
+        string s;
+        cin>>s;
+        if(s=="End")
+            break;
+        if(i!=K)
+        {   
+		    i++;
+            if(s=="Bu")
+                cout<<"JianDao"<<endl;
+            else if(s=="ChuiZi")
+                cout<<"Bu"<<endl;
+            else if(s=="JianDao")
+                cout<<"ChuiZi"<<endl;
+        }
+        else
+        {
+            i=0;
+            cout<<s<<endl;
+        }
+    }
+	return 0;
+}
+    
+    
