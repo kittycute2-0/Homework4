@@ -1,0 +1,152 @@
+原版本：编写程序完成一个简单计算器。
+通过键盘输入合法的四则运算表达式，然后输出表达式及其计算结果。
+#include <iostream>
+using namespace std;
+int  main()
+{
+	char  op;  
+	int  num1, num2, result;
+	cin >> num1 >> op >> num2;             
+	switch (op)
+	{  
+		case '+' : result =num1+num2; break;
+		case '-' : result =num1-num2; break;
+		case '*' : result =num1*num2; break;
+		case '/' : result =num1/num2; break;
+		default: cout << "运算符非法." << endl;
+	} 
+	cout << num1 << op << num2 << "=" << result << endl;
+	return 0;
+}
+
+版本1：考虑设定运行次数，次数固定；
+   设定运行次数为5次：
+#include <iostream>
+using namespace std;
+int  main()
+{
+	char  op;  
+	int  num1, num2, result;
+	
+	for (int i=1;i<=5;i++) 
+   {cin >> num1 >> op >> num2;             
+	switch (op)
+	{  
+		case '+' : result =num1+num2; break;
+		case '-' : result =num1-num2; break;
+		case '*' : result =num1*num2; break;
+		case '/' : result =num1/num2; break;
+		default: cout << "运算符非法." << endl;
+	} 
+	cout << num1 << op << num2 << "=" << result << endl;
+   }
+	return 0;
+}
+
+版本2：考虑设定运行次数，次数由用户输入确定；
+  用户可自行设定运行次数N，实现运行次数自定义：
+#include <iostream>
+using namespace std;
+int  main()
+{
+	char  op;  
+	int  num1, num2, result;
+	int N;
+	cin>>N; 
+	for (int i=1;i<=N;i++) 
+   {cin >> num1 >> op >> num2;             
+	switch (op)
+	{  
+		case '+' : result =num1+num2; break;
+		case '-' : result =num1-num2; break;
+		case '*' : result =num1*num2; break;
+		case '/' : result =num1/num2; break;
+		default: cout << "运算符非法." << endl;
+	} 
+	cout << num1 << op << num2 << "=" << result << endl;
+   }
+	return 0;
+}
+
+版本3：输入特定的数据退出；
+ 输入000 ，可以退出程序：
+ #include <iostream>
+using namespace std;
+int  main()
+{
+	char  op;  
+	int  num1, num2, result;
+	int N;
+	cin>>N; 
+	cout<<"输入000，可退出程序。"<<endl; 
+	for (int i=1;i<=N;i++) 
+   {cin >> num1;   
+    if (num1==000)
+	break;
+	cin >> op >> num2;          
+	switch (op)
+	{  
+		case '+' : result =num1+num2; break;
+		case '-' : result =num1-num2; break;
+		case '*' : result =num1*num2; break;
+		case '/' : result =num1/num2; break;
+		default: cout << "运算符非法." << endl;
+	} 
+	cout << num1 << op << num2 << "=" << result << endl;
+   }
+	return 0;
+}
+
+版本4：由用户确定是否继续运行，想继续运行则继续，不想继续则退出。
+#include <iostream>
+using namespace std;
+int  main()
+{
+	char  op;  
+	int  num1, num2, result;
+	int N;
+	cin>>N; 
+	for (int i=1;i<=N;i++) 
+   {cin >> num1 >> op >> num2;          
+	switch (op)
+	{  
+		case '+' : result =num1+num2; break;
+		case '-' : result =num1-num2; break;
+		case '*' : result =num1*num2; break;
+		case '/' : result =num1/num2; break;
+		default: cout << "运算符非法." << endl;
+	} 
+	cout << num1 << op << num2 << "=" << result << endl;
+	string s;
+	cout << "请输入“YES”或者“NO”确认是否退出程序。"<<endl;
+	cin >> s;
+	if (s=="YES")
+	 break;
+	 else if (s=="NO")
+	  continue; 
+   }
+	return 0;
+}
+
+版本5：永真循环，特定条件停止运行
+当输出结果为负数时，结束运行：
+#include <iostream>
+using namespace std;
+int  main()
+{
+	char  op;  
+	int  num1, num2, result;
+do
+   {cin >> num1 >> op >> num2;          
+	switch (op)
+	{  
+		case '+' : result =num1+num2; break;
+		case '-' : result =num1-num2; break;
+		case '*' : result =num1*num2; break;
+		case '/' : result =num1/num2; break;
+		default: cout << "运算符非法." << endl;
+	} 
+	cout << num1 << op << num2 << "=" << result << endl;
+   }while(result>=0);
+	return 0;
+}
